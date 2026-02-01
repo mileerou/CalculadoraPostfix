@@ -1,3 +1,3 @@
-public class Calculadora {
+public class Calculadora implements IPostfix {
     
 }

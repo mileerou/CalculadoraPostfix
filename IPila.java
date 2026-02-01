@@ -1,6 +1,7 @@
-public interface IPila {
-    void push(double value);
-    double pop();
-    boolean isEmpty();
-    int size();
+public interface IPila<N> {
+    void push (N elemento);
+    N pop();
+    N peek();
+    boolean estaVacia();
+    int tamano();
 }

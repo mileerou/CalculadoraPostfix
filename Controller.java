@@ -13,20 +13,18 @@ public class Controller {
 
     public void ejecutar() {
         try {
-            // Llama al método de la vista para leer el archivo datos.txt
             List<String> expresiones = vista.Archivo(rutaArchivo);
-
-            for (String expresion : expresiones) {
+            for (String exp : expresiones) {
                 try {
-                    double resultado = calculadora.evaluarPostfix(expresion);
-                    // El PDF pide resultados enteros si es posible, puedes castear o mostrar double
-                    vista.mostrarResultado(expresion, (int) resultado);
+                    double resultado = calculadora.evaluarPostfix(exp);
+                    // ejemplo muestra 15 como entero
+                    vista.mostrarResultado(exp, (int) resultado);
                 } catch (Exception e) {
-                    vista.mostrarError(expresion, e.getMessage());
+                    vista.mostrarError(exp, e.getMessage());
                 }
             }
         } catch (Exception e) {
-            vista.mostrarMensaje("Error al leer el archivo: " + e.getMessage());
+            vista.mostrarMensaje("Error fatal: " + e.getMessage());
         }
     }
 }

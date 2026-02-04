@@ -4,7 +4,7 @@ public class Calculadora implements IPostfix {
 
     @Override
     public double evaluarPostfix(String expresion) throws Exception {
-        // Usamos la implementación de Pila que creaste
+        // Usamos la implementación
         pila = new PilaNumeros<Double>();
         String[] tokens = expresion.split(" ");
 
@@ -12,7 +12,7 @@ public class Calculadora implements IPostfix {
             if (esNumero(token)) {
                 pila.push(Double.parseDouble(token));
             } else {
-                // Validación de operandos suficientes (Inciso 78)
+                // Validación de operandos suficientes
                 if (pila.tamano() < 2) {
                     throw new Exception("Error: Insuficientes operandos para el operador " + token);
                 }
@@ -51,7 +51,7 @@ public class Calculadora implements IPostfix {
                 if (b == 0)
                     throw new Exception("Error: División por cero");
                 return a / b;
-            case "%": // Agregado según requerimiento del inciso 20
+            case "%":
                 return a % b;
             default:
                 throw new Exception("Error: Carácter desconocido " + operador);
